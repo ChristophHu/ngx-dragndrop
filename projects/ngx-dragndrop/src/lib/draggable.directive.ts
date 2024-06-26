@@ -3,9 +3,9 @@ import { Subject, Observable, merge, ReplaySubject, combineLatest, fromEvent } f
 import { map, mergeMap, takeUntil, take, takeLast, pairwise, share, filter, count, startWith } from 'rxjs/operators'
 import { CurrentDragData, DraggableHelper } from './helpers/draggable-helper.provider'
 import { DOCUMENT } from '@angular/common'
-import autoScroll from '@mattlewis92/dom-autoscroller';
 import { DraggableScrollContainerDirective } from './draggable-scroll-container.directive'
 import { addClass, removeClass } from './helpers/util';
+// import autoScroll from '@mattlewis92/dom-autoscroller'
 
 export interface Coordinates {
   x: number
@@ -61,7 +61,7 @@ export interface GhostElementCreatedEvent {
 }
 
 @Directive({
-  selector: '[mwlDraggable]',
+  selector: '[mwlDraggable]'
 })
 export class DraggableDirective implements OnInit, OnChanges, OnDestroy {
   @Input() dropData: any
@@ -257,14 +257,14 @@ export class DraggableDirective implements OnInit, OnChanges, OnDestroy {
             });
           }
 
-          this.scroller = autoScroll([this.scrollContainer ? this.scrollContainer.elementRef.nativeElement : this.document.defaultView],
-            {
-              ...this.autoScroll,
-              autoScroll() {
-                return true
-              },
-            }
-          )
+          // this.scroller = autoScroll([this.scrollContainer ? this.scrollContainer.elementRef.nativeElement : this.document.defaultView],
+          //   {
+          //     ...this.autoScroll,
+          //     autoScroll() {
+          //       return true
+          //     },
+          //   }
+          // )
           addClass(this.renderer, this.element, this.dragActiveClass)
 
           if (this.ghostDragEnabled) {

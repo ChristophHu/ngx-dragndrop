@@ -2,7 +2,6 @@
  * Public API Surface of ngx-dragndrop
  */
 
-
 export * from './lib/drag-and-drop.module'
 export {
   DropEvent,
