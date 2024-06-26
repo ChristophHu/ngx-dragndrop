@@ -5,6 +5,9 @@ import { CurrentDragData, DraggableHelper } from './helpers/draggable-helper.pro
 import { DOCUMENT } from '@angular/common'
 import { DraggableScrollContainerDirective } from './draggable-scroll-container.directive'
 import { addClass, removeClass } from './helpers/util';
+import { SnapGrid } from './model/snap-grid.model';
+import { GhostElementCreatedEvent } from './model/ghost-element-created-event.model';
+import { TimerLongPress } from './model/timer-longpress.model';
 // import autoScroll from '@mattlewis92/dom-autoscroller'
 
 export interface Coordinates {
@@ -15,11 +18,6 @@ export interface Coordinates {
 export interface DragAxis {
   x: boolean
   y: boolean
-}
-
-export interface SnapGrid {
-  x?: number
-  y?: number
 }
 
 export interface DragPointerDownEvent extends Coordinates {}
@@ -49,19 +47,9 @@ export interface PointerEvent {
   event: MouseEvent | TouchEvent
 }
 
-export interface TimeLongPress {
-  timerBegin: number
-  timerEnd: number
-}
-
-export interface GhostElementCreatedEvent {
-  clientX: number
-  clientY: number
-  element: HTMLElement
-}
-
 @Directive({
-  selector: '[mwlDraggable]'
+  selector: '[mwlDraggable]',
+  standalone: true
 })
 export class DraggableDirective implements OnInit, OnChanges, OnDestroy {
   @Input() dropData: any
@@ -106,24 +94,16 @@ export class DraggableDirective implements OnInit, OnChanges, OnDestroy {
 
   private ghostElement: HTMLElement | null = null
 
-  private destroy$ = new Subject<void>();
+  private destroy$ = new Subject<void>()
 
-  private timeLongPress: TimeLongPress = { timerBegin: 0, timerEnd: 0 };
+  private timeLongPress: TimerLongPress = { timerBegin: 0, timerEnd: 0 }
 
   private scroller: { destroy: () => void } = { destroy: () => {} }
 
-  constructor(
-    private element: ElementRef<HTMLElement>,
-    private renderer: Renderer2,
-    private draggableHelper: DraggableHelper,
-    private zone: NgZone,
-    private vcr: ViewContainerRef,
-    @Optional() private scrollContainer: DraggableScrollContainerDirective,
-    @Inject(DOCUMENT) private document: any
-  ) {}
+  constructor(private element: ElementRef<HTMLElement>, private renderer: Renderer2, private draggableHelper: DraggableHelper, private zone: NgZone, private vcr: ViewContainerRef, @Optional() private scrollContainer: DraggableScrollContainerDirective, @Inject(DOCUMENT) private document: any) {}
 
   ngOnInit(): void {
-    this.checkEventListeners();
+    this.checkEventListeners()
 
     const pointerDragged$: Observable<any> = this.pointerDown$.pipe(
       filter(() => this.canDrag()),
@@ -131,7 +111,7 @@ export class DraggableDirective implements OnInit, OnChanges, OnDestroy {
         // fix for https://github.com/mattlewis92/angular-draggable-droppable/issues/61
         // stop mouse events propagating up the chain
         if (pointerDownEvent.event.stopPropagation && !this.scrollContainer) {
-          pointerDownEvent.event.stopPropagation();
+          pointerDownEvent.event.stopPropagation()
         }
 
         // hack to prevent text getting selected in safari while dragging

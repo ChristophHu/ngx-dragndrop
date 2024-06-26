@@ -1,12 +1,15 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DragAndDropModule, DroppableDirective, ValidateDrop } from '../../../ngx-dragndrop/src/public-api';
+import { DraggableDirective, DroppableDirective, ValidateDrop } from '../../../ngx-dragndrop/src/public-api';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    DragAndDropModule,
+    // DragAndDropModule,
+    // DraggableDirective,
+    DraggableDirective,
+    DroppableDirective,
     RouterOutlet
   ],
   templateUrl: './app.component.html',
