@@ -6,8 +6,6 @@ import { DraggableDirective, DroppableDirective, ValidateDrop } from '../../../n
   selector: 'app-root',
   standalone: true,
   imports: [
-    // DragAndDropModule,
-    // DraggableDirective,
     DraggableDirective,
     DroppableDirective,
     RouterOutlet

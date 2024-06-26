@@ -1,16 +1,10 @@
-import { Subject } from 'rxjs';
-import { Injectable } from '@angular/core';
-
-export interface CurrentDragData {
-  clientX: number;
-  clientY: number;
-  dropData: any;
-  target: EventTarget;
-}
+import { Subject } from 'rxjs'
+import { Injectable } from '@angular/core'
+import { CurrentDragData } from '../models/current-drag-data.model'
 
 @Injectable({
   providedIn: 'root',
 })
 export class DraggableHelper {
-  currentDrag = new Subject<Subject<CurrentDragData>>();
+  currentDrag = new Subject<Subject<CurrentDragData>>()
 }

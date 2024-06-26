@@ -1,13 +1,14 @@
 import { Directive, OnInit, ElementRef, Renderer2, Output, EventEmitter, Input, OnDestroy, OnChanges, NgZone, SimpleChanges, Inject, TemplateRef, ViewContainerRef, Optional } from '@angular/core';
 import { Subject, Observable, merge, ReplaySubject, combineLatest, fromEvent } from 'rxjs'
 import { map, mergeMap, takeUntil, take, takeLast, pairwise, share, filter, count, startWith } from 'rxjs/operators'
-import { CurrentDragData, DraggableHelper } from './helpers/draggable-helper.provider'
+import { DraggableHelper } from './helpers/draggable-helper.provider'
+import { CurrentDragData } from './models/current-drag-data.model'
 import { DOCUMENT } from '@angular/common'
 import { DraggableScrollContainerDirective } from './draggable-scroll-container.directive'
 import { addClass, removeClass } from './helpers/util';
-import { SnapGrid } from './model/snap-grid.model';
-import { GhostElementCreatedEvent } from './model/ghost-element-created-event.model';
-import { TimerLongPress } from './model/timer-longpress.model';
+import { SnapGrid } from './models/snap-grid.model';
+import { GhostElementCreatedEvent } from './models/ghost-element-created-event.model';
+import { TimerLongPress } from './models/timer-longpress.model';
 // import autoScroll from '@mattlewis92/dom-autoscroller'
 
 export interface Coordinates {

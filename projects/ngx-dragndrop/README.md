@@ -1,24 +1,19 @@
 # NgxDragndrop
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+This project was generated with Angular CLI version 17.3.0.
 
-## Code scaffolding
+## Demo
 
-Run `ng generate component component-name --project ngx-dragndrop` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-dragndrop`.
-> Note: Don't forget to add `--project ngx-dragndrop` or else it will be added to the default project in your `angular.json` file. 
+[Demo](https://christophhu.github.io/ngx-dragndrop/)
 
-## Build
+## Use
 
-Run `ng build ngx-dragndrop` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Draggable-Scroll-Container
+If the window isn't scrollable, then place this on the scrollable container that draggable elements are inside. e.g.
+```html
+    <div style="overflow: scroll" mwlDraggableScrollContainer>
+        <div mwlDraggable>Drag me!</div>
+    </div>
+```
 
-## Publishing
-
-After building your library with `ng build ngx-dragndrop`, go to the dist folder `cd dist/ngx-dragndrop` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngx-dragndrop` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Dragable
