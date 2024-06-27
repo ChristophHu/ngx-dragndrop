@@ -28,7 +28,7 @@ export interface ValidateDropParams extends DropEvent {}
 export type ValidateDrop = (params: ValidateDropParams) => boolean;
 
 @Directive({
-  selector: '[mwlDroppable]',
+  selector: '[nxtDroppable]',
   standalone: true
 })
 export class DroppableDirective implements OnInit, OnDestroy {
@@ -38,7 +38,7 @@ export class DroppableDirective implements OnInit, OnDestroy {
   @Output() dragEnter = new EventEmitter<DropEvent>()
   @Output() dragLeave = new EventEmitter<DropEvent>()
   @Output() dragOver = new EventEmitter<DropEvent>()
-  @Output() drop = new EventEmitter<DropEvent>() // eslint-disable-line  @angular-eslint/no-output-native
+  @Output() drop = new EventEmitter<DropEvent>()
 
   currentDragSubscription: Subscription = new Subscription()
 

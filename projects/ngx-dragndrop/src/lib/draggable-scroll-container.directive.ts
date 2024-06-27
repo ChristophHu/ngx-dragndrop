@@ -1,7 +1,7 @@
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[mwlDraggableScrollContainer]',
+  selector: '[nxtDraggableScrollContainer]',
   standalone: true
 })
 export class DraggableScrollContainerDirective {

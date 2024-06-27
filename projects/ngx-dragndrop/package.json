@@ -1,12 +1,32 @@
 {
   "name": "ngx-dragndrop",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Library to drag'n'drop elements with data.",
+  "license": "MIT",
+  "author": {
+    "name": "Christoph Huschenhoefer",
+    "email": "christoph@nxt.codes"
+  },
+  "keywords": [
+    "angular",
+    "drag and drop",
+    "tailwindcss"
+  ],
   "peerDependencies": {
+    "@angular/cdk": "^17.3.0",
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChristophHu/ngx-dragndrop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChristophHu/ngx-dragndrop/issues"
+  },
+  "homepage": "https://github.com/ChristophHu/ngx-dragndrop#readme",
   "sideEffects": false
 }

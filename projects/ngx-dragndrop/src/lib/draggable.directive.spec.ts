@@ -12,7 +12,7 @@ describe('draggable directive', () => {
   @Component({
     template: `
       <div
-        mwlDraggable
+        nxtDraggable
         #draggableElement
         [dragAxis]="dragAxis"
         [dragSnapGrid]="dragSnapGrid"
@@ -62,10 +62,10 @@ describe('draggable directive', () => {
   @Component({
     // eslint-disable-line  max-classes-per-file
     template: `
-      <div mwlDraggableScrollContainer *ngIf="!useBodyScroll; else contents">
+      <div nxtDraggableScrollContainer *ngIf="!useBodyScroll; else contents">
         <div
           #draggableElement
-          mwlDraggable
+          nxtDraggable
           [dragAxis]="{ x: true, y: true }"
           [validateDrag]="validateDrag"
           [touchStartLongPress]="{ delay: 300, delta: 30 }"
@@ -82,7 +82,7 @@ describe('draggable directive', () => {
       <ng-template #contents>
         <div
           #draggableElement
-          mwlDraggable
+          nxtDraggable
           [dragAxis]="{ x: true, y: true }"
           [validateDrag]="validateDrag"
           [touchStartLongPress]="{ delay: 300, delta: 30 }"
@@ -98,14 +98,14 @@ describe('draggable directive', () => {
     `,
     styles: [
       `
-        [mwlDraggableScrollContainer] {
+        [nxtDraggableScrollContainer] {
           height: 25px;
           overflow: scroll;
           position: fixed;
           top: 0;
           left: 0;
         }
-        [mwlDraggable] {
+        [nxtDraggable] {
           position: relative;
           width: 50px;
           height: 50px;
@@ -124,7 +124,7 @@ describe('draggable directive', () => {
     // eslint-disable-line  max-classes-per-file
     template: `
       <div
-        mwlDraggable
+        nxtDraggable
         [dragAxis]="{ x: true, y: true }"
         (dragPointerDown)="outerDrag($event)"
         (dragStart)="outerDrag($event)"
@@ -134,7 +134,7 @@ describe('draggable directive', () => {
       >
         <button
           #draggableElement
-          mwlDraggable
+          nxtDraggable
           [dragAxis]="{ x: true, y: true }"
           (dragPointerDown)="dragPointerDown($event)"
           (dragStart)="dragStart($event)"
@@ -148,7 +148,7 @@ describe('draggable directive', () => {
     `,
     styles: [
       `
-        div[mwlDraggable] {
+        div[nxtDraggable] {
           position: relative;
           width: 50px;
           height: 50px;
@@ -843,7 +843,7 @@ describe('draggable directive', () => {
     expect(ghostElement.style.width).to.be.ok;
     expect(ghostElement.style.height).to.be.ok;
     expect(draggableElement.style.visibility).to.equal('hidden');
-    expect((ghostElement as HTMLElement).hasAttribute('mwldraggable')).to.be
+    expect((ghostElement as HTMLElement).hasAttribute('nxtdraggable')).to.be
       .true;
     triggerDomEvent('mouseup', draggableElement, {
       clientX: 7,
@@ -955,7 +955,7 @@ describe('draggable directive', () => {
     expect(ghostElement.style.left).to.be.ok;
     expect(ghostElement.style.width).to.be.ok;
     expect(ghostElement.style.height).to.be.ok;
-    expect((ghostElement as HTMLElement).hasAttribute('mwldraggable')).to.be
+    expect((ghostElement as HTMLElement).hasAttribute('nxtdraggable')).to.be
       .true;
   });
 

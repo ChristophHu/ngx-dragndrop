@@ -49,7 +49,7 @@ export interface PointerEvent {
 }
 
 @Directive({
-  selector: '[mwlDraggable]',
+  selector: '[nxtDraggable]',
   standalone: true
 })
 export class DraggableDirective implements OnInit, OnChanges, OnDestroy {

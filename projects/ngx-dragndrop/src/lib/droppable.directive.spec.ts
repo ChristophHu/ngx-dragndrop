@@ -14,7 +14,7 @@ describe('droppable directive', () => {
     template: `
       <div
         #draggableElement
-        mwlDraggable
+        nxtDraggable
         [dropData]="dropData"
         (dragEnd)="dragEnd()"
       >
@@ -22,7 +22,7 @@ describe('droppable directive', () => {
       </div>
       <div
         #droppableElement
-        mwlDroppable
+        nxtDroppable
         (dragEnter)="dragEvent('enter', $event)"
         (dragOver)="dragEvent('over', $event)"
         (dragLeave)="dragEvent('leave', $event)"
@@ -36,14 +36,14 @@ describe('droppable directive', () => {
     `,
     styles: [
       `
-        [mwlDraggable] {
+        [nxtDraggable] {
           position: relative;
           width: 50px;
           height: 50px;
           z-index: 1;
           margin-top: -200px;
         }
-        [mwlDroppable] {
+        [nxtDroppable] {
           position: relative;
           top: 100px;
           left: 0;
@@ -76,10 +76,10 @@ describe('droppable directive', () => {
   @Component({
     // eslint-disable-line  max-classes-per-file
     template: `
-      <div mwlDraggableScrollContainer>
+      <div nxtDraggableScrollContainer>
         <div
           #draggableElement
-          mwlDraggable
+          nxtDraggable
           [dropData]="dropData"
           (dragEnd)="dragEnd()"
         >
@@ -87,7 +87,7 @@ describe('droppable directive', () => {
         </div>
         <div
           #droppableElement
-          mwlDroppable
+          nxtDroppable
           (dragEnter)="dragEvent('enter', $event)"
           (dragOver)="dragEvent('over', $event)"
           (dragLeave)="dragEvent('leave', $event)"
@@ -101,20 +101,20 @@ describe('droppable directive', () => {
     `,
     styles: [
       `
-        [mwlDraggableScrollContainer] {
+        [nxtDraggableScrollContainer] {
           height: 25px;
           overflow: scroll;
           position: fixed;
           top: 0;
           left: 0;
         }
-        [mwlDraggable] {
+        [nxtDraggable] {
           position: relative;
           width: 50px;
           height: 50px;
           z-index: 1;
         }
-        [mwlDroppable] {
+        [nxtDroppable] {
           position: relative;
           top: 100px;
           left: 0;
